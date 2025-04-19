@@ -7,7 +7,6 @@ import ModifyResponse from "./modify-response";
 import ShareChat from "./share-chat";
 import { FiMoreVertical } from "react-icons/fi";
 import DevPopover from "../dev-components/dev-popover";
-import { Toaster, toast } from 'sonner'
 import { MdContentCopy, MdOutlineFlag } from "react-icons/md";
 import geminiZustand from "@/utils/gemini-zustand";
 import { FcGoogle } from "react-icons/fc";
@@ -44,7 +43,7 @@ const ChatActionsBtns = ({
 
   const handleDoubleCheck = async () => {
     const prompt = `
-      Generate a list of at least 5 different Google search queries based strictly on the user prompt. Provide the queries in an array format without any unnecessary responses. Ensure the queries are relevant and varied but aligned with the user's prompt.
+      Generate a list of at least 5 different Google search queries based strictly on the user prompt. Provide the queries in an array json format without any unnecessary responses. Ensure the queries are relevant and varied but aligned with the user's prompt.
       Previous chats:
       Current User Query:
       ${userPrompt}`
@@ -53,7 +52,7 @@ const ChatActionsBtns = ({
       const result = await model.generateContent(prompt);
       const response = await result.response;
       const text = response.text();
-      const googleResArray = JSON.parse(text);
+      const googleResArray = JSON.parse(text.replace(/^```json\s*|\s*```$/gm, "").trim());
       setGoogleRes(googleResArray)
 
     } catch (error) {
