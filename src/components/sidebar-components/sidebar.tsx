@@ -21,6 +21,7 @@ import { createPortal } from "react-dom";
 import GeminiLogo from "../header-components/gemini-logo";
 import { SiGooglegemini } from "react-icons/si";
 import { LuGalleryHorizontalEnd } from "react-icons/lu";
+import { FaGithub } from "react-icons/fa";
 
 const SideBar = ({ user, sidebarList }: { user?: User; sidebarList: any }) => {
   const [open, setOpen] = useState(false);
@@ -75,6 +76,24 @@ const SideBar = ({ user, sidebarList }: { user?: User; sidebarList: any }) => {
       </div>
       <div>
         <ul className="mt-5 space-y-1">
+        <li>
+            <ReactTooltip
+              occupy={false}
+              place="right"
+              tipData="Github"
+            >
+              <DevButton
+                variant="v3"
+                href="https://github.com/devyanshyadav/dev-gemini-clone"
+                target="_blank"
+                className={`text-sm *:text-xl ${open ? " aspect-auto " : " aspect-square "} group !w-full !justify-start gap-3`}
+                rounded="full"
+              >
+                <FaGithub />
+                {open && "Github"}
+              </DevButton>
+            </ReactTooltip>
+          </li>
           <li>
             {" "}
             <ReactTooltip occupy={false} place="right" tipData="Help">
@@ -156,6 +175,7 @@ const SideBar = ({ user, sidebarList }: { user?: User; sidebarList: any }) => {
               </DevPopover>
             </ReactTooltip>
           </li>
+          
         </ul>
         <DevButton variant="v1" className="gap-2 mt-2 text-sm md:!hidden !flex">
           <SiGooglegemini className="text-lg text-[#D96570]" />
@@ -166,11 +186,11 @@ const SideBar = ({ user, sidebarList }: { user?: User; sidebarList: any }) => {
         >
           <span className="flex items-center text-xs gap-2 ml-3 mt-5">
             <GoDotFill />
-            <p>http://localhost:3000</p>
+            <p>Location: http://localhost:3000</p>
           </span>
-          <span className="text-xs text-nowrap cursor-pointer text-blue-400 ml-3">
-            From your Dev IP address . Update location
-          </span>
+          <a href="https://www.devyanshyadav.com/" target="_blank" className="text-xs text-nowrap cursor-pointer ml-3">
+            Made with ❤️ by <span className="underline">Devyansh Developer</span>
+          </a>
         </div>
       </div>
     </section>
