@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Dev Gemini Clone",
     images: [
       {
-        url: "/assets/gemini-logo.svg",
+        url: "/assets/gemini-banner.png",
         width: 1200,
         height: 630,
       },
@@ -30,12 +30,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  
   twitter: {
     card: "summary_large_image",
     title: "Dev Gemini Clone",
     description: "Experience the power of AI with our Gemini-inspired assistant",
     creator: "@yourTwitterHandle",
-    images: ["/assets/gemini-banner.svg"],
+    images: ["/assets/gemini-banner.png"],
   },
   viewport: {
     width: "device-width",
