@@ -13,7 +13,7 @@ import { MdImageSearch } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 
 const InputPrompt = ({ user }: { user?: User }) => {
-  const { currChat, setCurrChat, setToast, customPrompt, setInputImgName, inputImgName, setMsgLoader, prevChat, msgLoader, optimisticResponse, setUserData, setOptimisticResponse, setOptimisticPrompt } =
+  const { currChat, setCurrChat, setToast, customPrompt, setInputImgName, inputImgName, setMsgLoader, prevChat, msgLoader, optimisticResponse, setUserData, setOptimisticResponse, setOptimisticPrompt, geminiApiKey } =
     geminiZustand();
   const [inputImg, setInputImg] = useState<File | null>(null)
 
@@ -21,7 +21,7 @@ const InputPrompt = ({ user }: { user?: User }) => {
   const router = useRouter();
   const [inputRref, { height }] = useMeasure<HTMLTextAreaElement>();
   const chatID = (chat as string) || nanoid();
-  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_API_KEY as string);
+  const genAI = new GoogleGenerativeAI(geminiApiKey as string);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   const cancelRef = useRef(false);
 

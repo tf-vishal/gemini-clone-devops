@@ -24,6 +24,8 @@ interface GeminiState {
   setOptimisticPrompt:(optimisticPrompt:string | null)=>void
   customPrompt:{prompt:string|null, placeholder:string|null},
   setCustomPrompt:(value:{prompt:string|null, placeholder:string|null})=>void
+  geminiApiKey:string | null,
+  setGeminiApiKey:(geminiApiKey:string | null)=>void
 }
 
 const geminiZustand = create<GeminiState>()((set) => ({
@@ -45,6 +47,8 @@ const geminiZustand = create<GeminiState>()((set) => ({
   setMsgLoader: (msgLoader) => set({ msgLoader }),
   setOptimisticResponse:(optimisticResponse:string | null)=>set({optimisticResponse}),
   setPrevChat: (newChat: Message) => set({ prevChat: newChat }),
+  geminiApiKey:process.env.NEXT_PUBLIC_API_KEY as string,
+  setGeminiApiKey:(geminiApiKey:string | null)=>set({geminiApiKey}),
   setCurrChat: (name: string | null, value: string | null) =>
     set((state) => ({
       currChat: { ...state.currChat, [name as string]: value },

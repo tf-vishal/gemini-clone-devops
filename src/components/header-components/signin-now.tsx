@@ -3,11 +3,10 @@ import Image from "next/image";
 import { GoSignOut } from "react-icons/go";
 import { IoApps } from "react-icons/io5";
 import { signOut, signIn } from '@/auth'
-import { SiGooglegemini } from "react-icons/si";
 import DevPopover from "../dev-components/dev-popover";
-import Link from "next/link";
 import ReactTooltip from "../dev-components/react-tooltip";
 import PortfolioProjects from "./portfolio-projects";
+import CustomGeminiKey from "./custom-geminikey";
 
 export default function SignInNow({ userData }: any) {
   const handleSign = async () => {
@@ -68,10 +67,7 @@ export default function SignInNow({ userData }: any) {
   ]
   return (
     <div className="flex items-center gap-2">
-      <DevButton variant="v1" className="gap-2 text-sm md:!flex !hidden">
-        <SiGooglegemini className="text-lg text-[#D96570]" />
-        Try Gemini Advanced
-      </DevButton>
+    <CustomGeminiKey/>
       <DevPopover
         place="bottom-start"
         contentClick={false}

@@ -60,7 +60,7 @@ const ChatProvider: React.FC<{
   imgName?: string;
   imgInfo: { imgSrc: string; imgAlt: string };
 }> = ({ llmResponse, chatUniqueId, userPrompt, imgInfo, imgName }) => {
-  const { topLoader, setCurrChat, setTopLoader, currChat } = geminiZustand();
+  const { topLoader, setCurrChat, setTopLoader, currChat,geminiApiKey } = geminiZustand();
   const [dropdown, setDropdown] = useState(false);
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
   const [initialResponse, setInitialResponse] = useState(llmResponse);
@@ -72,7 +72,7 @@ const ChatProvider: React.FC<{
   const [promptModify, setPromptModify] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_API_KEY as string);
+  const genAI = new GoogleGenerativeAI(geminiApiKey as string);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const editor = useEditor({

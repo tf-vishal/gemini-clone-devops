@@ -26,8 +26,8 @@ const ChatActionsBtns = ({
   userPrompt: string;
   shareMsg: string;
 }) => {
-  const { devToast, setToast } = geminiZustand();
-  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_API_KEY as string);
+  const { devToast, setToast,geminiApiKey } = geminiZustand();
+  const genAI = new GoogleGenerativeAI(geminiApiKey as string);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   const [googleRes, setGoogleRes] = useState<string[] | null>(null)
   const [loader, setLoader] = useState(false)
