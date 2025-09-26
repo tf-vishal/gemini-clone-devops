@@ -84,7 +84,7 @@ const SideBar = ({ user, sidebarList }: { user?: User; sidebarList: any }) => {
             >
               <DevButton
                 variant="v3"
-                href="https://github.com/devyanshyadav/dev-gemini-clone"
+                href="https://github.com/tf-vishal/gemini-clone-devops"
                 target="_blank"
                 className={`text-sm *:text-xl ${open ? " aspect-auto " : " aspect-square "} group !w-full !justify-start gap-3`}
                 rounded="full"
